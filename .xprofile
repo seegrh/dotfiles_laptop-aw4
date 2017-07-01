@@ -1,3 +1,3 @@
 compton & 
-xset s off
-xset -dmps
+#xset s off
+#xset -dmps

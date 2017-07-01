@@ -31,10 +31,8 @@ if ( @snapshots ) {
 	foreach (@snapshots){
 		$i++;
 		my $snapshot = $_;
-		if ( $i+1 == $snapmax) { 
-			print "=> Supression des snapshots\n"; 
-		}
 		if ( $i > $snapmax ) {
+			print "=> Supression des snapshots\n"; 
 			$cmd = "sudo btrfs subvolume delete $snapdir/$snapshot";
 			#print "$cmd\n";
 			system $cmd;

@@ -58,9 +58,10 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.magnifier,
     lain.layout.uselesstile,
-    lain.layout.uselesstile.bottom,
     lain.layout.uselessfair,
-    awful.layout.suit.floating,
+    lain.layout.uselesstile.bottom,
+    lain.layout.uselesstile.top,
+--    awful.layout.suit.floating,
     }
 -- }}}
 
@@ -101,8 +102,9 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Launcher
 
 ---- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
-firefox_launcher = awful.widget.launcher({ image = beautiful.firefox_icon, command = "firefox" })
+chromium_launcher = awful.widget.launcher({ image = beautiful.chromium_icon, command = "chromium" })
 pcmanfm_launcher = awful.widget.launcher({ image = beautiful.pcmanfm_icon, command = "pcmanfm" })
+nixnote_launcher = awful.widget.launcher({ image = beautiful.nixnote_icon, command = "nixnote" })
 remmina_launcher = awful.widget.launcher({ image = beautiful.remmina_icon, command = "remmina" })
 
 -- }}}
@@ -403,14 +405,14 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.layout.margin(firefox_launcher,2,2,2,2),
+            wibox.layout.margin(chromium_launcher,2,2,2,2),
             wibox.layout.margin(pcmanfm_launcher,2,2,2,2),
+            wibox.layout.margin(nixnote_launcher,2,2,2,2),
             wibox.layout.margin(remmina_launcher,2,2,2,2),
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             systray,
             wibox.layout.margin(wibox.widget.systray(),3,3,3,3),
             wibox.layout.margin(s.mylayoutbox,3,3,3,3),
@@ -528,8 +530,9 @@ globalkeys = awful.util.table.join(
 --              {description = "show the menubar", group = "launcher"})
 
     -- Custom Key bindings
-    awful.key({ modkey,           }, "w", function () awful.spawn("firefox") end),
+    awful.key({ modkey,           }, "w", function () awful.spawn("chromium") end),
     awful.key({ modkey,           }, "p", function () awful.spawn("pcmanfm") end),
+    awful.key({ modkey,           }, "Up", function () awful.spawn("slimlock") end),
     awful.key({ "Mod1", "Control" }, "a", function () awful.util.spawn_with_shell("keepass --auto-type") end)
 )
 
@@ -674,7 +677,7 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- Note : "➊", "➋", "➌", "➍", "➎"
-    { rule = { class = "Firefox" },
+    { rule = { class = "Chromium" },
        properties = { screen = 1, tag = "➊" } },
 
     { rule = { class = "Pcmanfm" },
@@ -779,7 +782,9 @@ end
 
 -- Autostart applications. The extra argument is optional, it means how long to
 -- delay a command before starting it (in seconds).
-autostart("pkill nm-applet", 1)
-autostart("nm-applet", 4)
+--autostart("pkill nm-applet", 1)
+autostart("nm-applet", 15)
+autostart("chromium")
+autostart("keepass")
 
 -- }}}
