@@ -41,9 +41,10 @@ theme.tasklist_maximized_vertical               = ""
 theme.tasklist_disable_icon                     = true
 
 theme.awesome_icon                              = theme.dir .."/icons/awesome.png"
-theme.archlinux_icon                              = theme.dir .."/icons/archlinux.svg"
-theme.firefox_icon                              = theme.dir .."/icons/firefox.svg"
-theme.chromium_icon                              = theme.dir .."/icons/chromium.svg"
+theme.archlinux_icon                            = theme.dir .."/icons/archlinux.svg"
+--theme.firefox_icon                            = theme.dir .."/icons/firefox.svg"
+--theme.chromium_icon                           = theme.dir .."/icons/chromium.svg"
+theme.firefox_nightly_icon                      = theme.dir .."/icons/firefox-nightly.svg"
 theme.nixnote_icon                              = theme.dir .."/icons/nixnote.svg"
 theme.pcmanfm_icon                              = theme.dir .."/icons/file-manager-red.svg"
 theme.remmina_icon                              = theme.dir .."/icons/remmina.svg"
