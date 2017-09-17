@@ -684,10 +684,10 @@ awful.rules.rules = {
        properties = { screen = 1, tag = "➋" } },
 
     { rule = { class = "KeePass" },
-     	    properties = { screeen = 1, tag = "➎" } },
+     	    properties = { screen = 1, tag = "➎" } },
 	    
     { rule = { class = "Gimp" },
-     	    properties = { screeen = 1, tag = "➎" } },
+     	    properties = { screen = 1, tag = "➎" } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
